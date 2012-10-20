@@ -1,6 +1,32 @@
 ;;@@Requirements
-(add-to-list 'load-path "~/.emacs.d/auto-complete-1.3.1")
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
 (add-to-list 'load-path "~/.emacs.d/plugins/")
+
+;;Yasnippet-bundle
+;;************************************************************
+(require 'yasnippet-bundle)
+;;************************************************************
+
+;;flyspell mode
+;;************************************************************
+(dolist (hook '(text-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode 1))))
+    (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode -1))))
+(add-hook 'c-mode
+          (lambda()
+            (flyspell-prog-mode)
+            ))
+(add-hook 'python-mode
+          (lambda()
+            (flyspell-prog-mode)
+            ))
+(add-hook 'python-mode
+          (lambda()
+            (flymake-mode)
+            ))
+
+;;************************************************************
 
 ;;auto-complete mode
 ;;************************************************************
@@ -14,9 +40,11 @@
 ;;                          ac-source-symbols
 ;;                          ))
 ;; Examples
-(set-face-background 'ac-candidate-face "lightgray")
-(set-face-underline 'ac-candidate-face "darkgray")
-(set-face-background 'ac-selection-face "steelblue")
+;; (set-face-background 'ac-candidate-face "lightgray")
+;; (set-face-underline 'ac-candidate-face "darkgray")
+;; (set-face-background 'ac-selection-face "steelblue")
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
 ;;******************************************************************
 
 ;;Animate_emacs on startup
@@ -30,6 +58,8 @@
     (newline-and-indent) (newline-and-indent))
 (add-hook 'after-init-hook 'emacs-reloaded)
 ;;******************************************************************
+
+;;************************************************************
 
 ;;Ido-mode
 ;;*********************************************************
@@ -76,7 +106,6 @@
 (global-set-key (kbd "<down>") 'disabled-key)
 (global-set-key (kbd "<left>") 'disabled-key)
 (global-set-key (kbd "<right>") 'disabled-key)
-
 (global-set-key (kbd "<C-up>") 'disabled-key)
 (global-set-key (kbd "<C-down>") 'disabled-key)
 (global-set-key (kbd "<C-left>") 'disabled-key)
