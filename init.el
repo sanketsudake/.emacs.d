@@ -1,6 +1,8 @@
 ;;@@Requirements
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
+(add-to-list 'load-path "~/.emacs.d/plugins/python-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/")
+
 
 (require 'erc)
 ;;Yasnippet-bundle
@@ -193,3 +195,7 @@
                (doctor-doc text)
                (buffer-string))))))
 ;;************************************************************
+(setq py-install-directory "~/.emacs.d/plugins/python-mode")
+(require 'python-mode)
+(setq py-shell-name "ipython")
+(setq py-shell-name "/usr/bin/ipython2.7")
