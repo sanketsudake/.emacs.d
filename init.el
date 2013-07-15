@@ -1,84 +1,42 @@
-;;@@Package Setup
+;; Sanket Sudake
+;; 15 July 2013
+
+(require 'cl)
+(load "~/.emacs.d/cinesp.el")
+;;@@Add load-path
 ;;************************************************************
-(require 'package)
-(add-to-list 'package-archives
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(add-to-list 'load-path (cons "~/.emacs.d/elisp" load-path))
+(add-to-list 'load-path (cons "~/.emacs.d" load-path))
 ;;************************************************************
 
-;;@@Requirement Paths
-;;************************************************************
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete-1.3.1")
-(add-to-list 'load-path "~/.emacs.d/plugins/python-mode")
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-************************************************************
+;;Text mode and Auto Fill mode
+(setq default-major-mode 'text-mode)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;;@@Yasnippet-bundle
-;;************************************************************
-(require 'yasnippet-bundle)
-;;************************************************************
-
-;;@@flyspell mode
-;;************************************************************
-(dolist (hook '(text-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode 1))))
-(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode -1))))
-(add-hook 'c-mode
-          (lambda()
-            (flyspell-prog-mode)
-            ))
-(add-hook 'python-mode
-          (lambda()
-            (flyspell-prog-mode)
-            ))
-;;************************************************************
-
-;;@@auto-complete mode
-;;************************************************************
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
-(ac-config-default)
-;; (set-default 'ac-sources '(
-;;                           ac-source-abbrev
-;;                           ac-source-words-in-buffer
-;;                          ac-source-files-in-current-dir
-;;                          ac-source-symbols
-;;                          ))
-(define-key ac-complete-mode-map "\C-n" 'ac-next)
-(define-key ac-complete-mode-map "\C-p" 'ac-previous)
-;;******************************************************************
-
-;;@@Animate_emacs on startup
-;;*******************************************************
-;;Primarily Turned Off because Slow startup of emacs
-;; (defconst animate-n-steps 10)
-;;   (defun emacs-reloaded ()
-;;     (animate-string (concat ";; Initialization successful, welcome to "
-;; 			    (substring (emacs-version) 0 16)
-;; 			    ".")
-;; 		    0 0)
-;;     (newline-and-indent) (newline-and-indent))
-;; (add-hook 'after-init-hook 'emacs-reloaded)
-;;******************************************************************
-
-;;************************************************************
-
-;;@@Ido-mode
-;;*********************************************************
-;; I have require Ido mode for better file manupilation.
-(require 'ido)
+;; Ido mode
 (ido-mode t)
-;;*********************************************************
+(setq ido-enable-flex-matching t) ; fuzzy matching is a must have
+;; This tab override shouldn't be necessary given ido's default
+;; configuration, but minibuffer-complete otherwise dominates the
+;; tab binding because of my custom tab-completion-everywhere
+;; configuration.
+(add-hook 'ido-setup-hook
+          (lambda ()
+            (define-key ido-completion-map [tab] 'ido-complete)))
 
-;;@@Turn on Electric Indent Mode
-;;*********************************************************
-(electric-indent-mode t) ;Auto Indent Any Lang Code
-(electric-pair-mode t) ;Auto Pair
-(electric-layout-mode t) ;Set Layout For My Text
-;;*********************************************************
+;; Stop autobackup
+(setq make-backup-files nil) ;stop creating those backup~ files
+(setq auto-save-default nil) ;stop creating those #autosave# files
+
+;; Mail mode
+; To enter mail mode, type `C-x m'
+; To enter RMAIL (for reading mail),
+; type `M-x rmail'
+(setq mail-aliases t)
+
+
+
+
 
 ;;@@Set F11 for Full-Screen
 ;;**********************************************************************
@@ -102,8 +60,9 @@
 (global-auto-revert-mode 1)
 (setq disable-command-hook nil)
 (setq inhibit-startup-message t)
-(global-hl-line-mode t)
+(global-hl-line-mode 1)
 (global-linum-mode t)
+(global-visual-line-mode 1) ; 1 for on, 0 for off
 ;;**********************************************************************
 
 ;;@@Disable Arrow Keys
@@ -127,90 +86,14 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 ;;************************************************************
 
-;;@@ERC doctor
+;;@@Set theme
 ;;************************************************************
-(require 'erc)
-(setq erc-remove-parsed-property nil)
-(autoload 'doctor-doc "doctor")
-(autoload 'make-doctor-variables "doctor")
-(defvar erc-doctor-id " ")
-(defun erc-cmd-DOCTOR (&optional last-sender &rest ignore)
-  "Get the last message in the channel and doctor it."
-  (let ((limit (- (point) 1000))
-        (pos (point))
-        doctor-buffer
-        last-message
-        text)
-    ;; Make sure limit is not negative
-    (when (< limit 0) (setq limit 0))
-    ;; Search backwards for text from someone
-    (while (and pos (not (let ((data (get-text-property pos 'erc-parsed)))
-                           (and data
-                                (string= (aref data 3) "PRIVMSG")
-                                (or (not last-sender)
-                                    (string= (car (split-string (aref data 2) "!"))
-                                             last-sender))))))
-      (setq pos (previous-single-property-change
-                 pos 'erc-parsed nil limit))
-      (when (= pos limit)
-        (error "No appropriate previous message to doctor")))
-    (when pos
-      (setq last-sender (car (split-string
-                              (aref (get-text-property
-                                     pos 'erc-parsed) 2) "!"))
-            doctor-buffer (concat "*ERC doctor: " last-sender "*")
-            last-message (split-string
-                          ;; Remove punctuation from end of sentence
-                          (replace-regexp-in-string
-                           "[ .?!;,/]+$" ""
-                           (aref (get-text-property pos
-                                                    'erc-parsed) 5)))
-            text (mapcar (lambda (s)
-                           (intern (downcase s)))
-                         ;; Remove salutation if it exists
-                         (if (string-match
-                              (concat "^" erc-valid-nick-regexp
-                                      "[:,]*$\\|[:,]+$")
-                              (car last-message))
-                             (cdr last-message)
-                           last-message))))
-    (erc-send-message
-     (concat erc-doctor-id
-             ;; Only display sender if not in a query buffer
-             (if (not (erc-query-buffer-p))
-                 (concat last-sender ": "))
-             (save-excursion
-               (if (get-buffer doctor-buffer)
-                   (set-buffer doctor-buffer)
-                 (set-buffer (get-buffer-create doctor-buffer))
-                 (make-doctor-variables))
-               (erase-buffer)
-               (doctor-doc text)
-               (buffer-string))))))
 ;;************************************************************
 
-;;@@Python-Mode From Lanuchpad
+;;Coding system
 ;;************************************************************
-(setq py-install-directory "~/.emacs.d/plugins/python-mode")
-(require 'python-mode)
-(setq py-shell-name "ipython")
-(setq py-shell-name "/usr/bin/ipython2.7")
+(prefer-coding-system 'utf-8)
 ;;************************************************************
 
-;;@@Theme Settings
-;;************************************************************
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes (quote ("be7eadb2971d1057396c20e2eebaa08ec4bfd1efe9382c12917c6fe24352b7c1" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-;;************************************************************
+;; Set theme clues
+(load-theme 'clues t)
