@@ -1,4 +1,10 @@
-;;Innitialize package-repository
+
+;; Filename: set-packagesp.el
+;; Description:
+;; Created at: 19July, 2013
+
+;;@@Innitialize package-repository
+;; **********************************************************************
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -10,7 +16,9 @@
                    gist groovy-mode haml-mode haskell-mode inf-ruby
                    magit magithub markdown-mode paredit projectile python
                    sass-mode rainbow-mode scss-mode solarized-theme
-                   volatile-highlights yaml-mode yari zenburn-theme)
+                   volatile-highlights yaml-mode yari zenburn-theme clues-theme
+                   auto-complete auto-complete-clang
+                   )
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -28,5 +36,5 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-(provide 'cinesp)
-;;; prelude-packages.el ends here
+(provide 'set-packages.el)
+;;; set-packages.el ends here
