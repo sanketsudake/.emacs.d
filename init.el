@@ -7,3 +7,4 @@
 (load "~/.emacs.d/set-ui.el")
 (load "~/.emacs.d/set-org.el")
 (load "~/.emacs.d/set-modes.el")
+(load "~/.emacs.d/set-cenv.el")

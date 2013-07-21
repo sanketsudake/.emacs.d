@@ -1,6 +1,6 @@
 
 ;; Filename: set-ui.el
-;; Purpose: Customizing own according to my needs
+;; Purpose: Customizing ui and basic functional changes
 
 ;;@@Disable Arrow Keys
 ;;************************************************************
@@ -58,6 +58,11 @@
 ;;@@Coding style
 ;;************************************************************
 (prefer-coding-system 'utf-8)
+;;************************************************************
+
+;;@@Set Linum Format
+;;************************************************************
+(setq linum-format "%4d")
 ;;************************************************************
 
 (provide 'set-ui.el)

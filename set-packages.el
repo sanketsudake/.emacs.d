@@ -18,7 +18,7 @@
                    sass-mode rainbow-mode scss-mode solarized-theme
                    volatile-highlights yaml-mode yari zenburn-theme clues-theme
                    auto-complete auto-complete-clang
-                   )
+		   )
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
