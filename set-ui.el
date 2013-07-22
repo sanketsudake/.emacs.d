@@ -65,5 +65,13 @@
 (setq linum-format "%4d")
 ;;************************************************************
 
+;;@Default windows size
+;;Happy with current height and width
+;;(add-to-list 'default-frame-alist '(height . 24))
+;;(add-to-list 'default-frame-alist '(width . 80))
+
+;; yes or no becomes y or n
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (provide 'set-ui.el)
 ;; set-ui.el ends here
