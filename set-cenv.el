@@ -25,13 +25,18 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories
              "~/.emacs.d/elpa/auto-complete/dict")
+(require 'auto-complete-clang)
+(require 'auto-complete-clang-async)
 (set-default 'ac-sources
              '(ac-source-abbrev
                ac-source-dictionary
                ac-source-yasnippet
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers
-               ac-source-semantic))
+               ac-source-semantic
+			   ac-source-clang
+			   ac-source-clang-async
+			   ))
 
 (ac-config-default)
 
@@ -45,9 +50,11 @@
 
 ;;@@auto-complete-clang setup
 ;;************************************************************
-(require 'auto-complete-clang)
-(define-key c++-mode-map (kbd "C-.") 'ac-complete-clang)
+;;(require 'auto-complete-clang)
+;;(define-key c++-mode-map (kbd "C-.") 'ac-complete-clang)
 ;; replace C-S-<return> with a key binding that you want
+
+
 ;;************************************************************
 
 ;;@@member-function
