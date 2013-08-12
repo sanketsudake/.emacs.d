@@ -8,8 +8,10 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-(dolist (source '(("melpa" . "http://melpa.milkbox.net/packages/")
-                  ("marmalade" . "http://marmalade-repo.org/packages/")))
+(dolist (source '(
+                  ("marmalade" . "http://marmalade-repo.org/packages/")
+				  ("melpa" . "http://melpa.milkbox.net/packages/")
+				  ))
   (add-to-list 'package-archives source))
 )
 

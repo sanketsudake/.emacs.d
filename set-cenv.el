@@ -24,7 +24,8 @@
 (yas-global-mode 1)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories
-             "~/.emacs.d/elpa/auto-complete/dict")
+             "~/.emacs.d/dict")
+(ac-config-default)
 (require 'auto-complete-clang)
 (require 'auto-complete-clang-async)
 (set-default 'ac-sources
@@ -37,9 +38,6 @@
 			   ac-source-clang
 			   ac-source-clang-async
 			   ))
-
-(ac-config-default)
-
 (dolist (m '(c-mode c++-mode java-mode))
   (add-to-list 'ac-modes m))
 (ac-set-trigger-key "TAB")
