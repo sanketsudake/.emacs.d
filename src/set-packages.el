@@ -5,6 +5,7 @@
 
 ;;@@Innitialize package-repository
 ;; **********************************************************************
+(provide 'set-packages.el)
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -17,14 +18,14 @@
 
 ;;Package Setup
 (defvar prelude-packages
-  '(ack-and-a-half auctex clojure-mode coffee-mode deft
-				   expand-region gist groovy-mode haml-mode
-				   haskell-mode inf-ruby magit magithub markdown-mode
+  '(ack-and-a-half auctex  deft
+				   expand-region
+				   magit magithub markdown-mode
 				   paredit projectile python sass-mode rainbow-mode
-				   scss-mode solarized-theme volatile-highlights
-				   yaml-mode yari zenburn-theme clues-theme
-				   auto-complete auto-complete-clang autopair
-				   yasnippet ecb emms
+				   scss-mode  volatile-highlights
+				   yaml-mode yari clues-theme
+				   auto-complete autopair
+				   yasnippet ecb emms c-eldoc company
 		   )
   "A list of packages to ensure are installed at launch.")
 
@@ -43,5 +44,5 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-(provide 'set-packages.el)
+
 ;;; set-packages.el ends here

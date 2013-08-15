@@ -73,5 +73,9 @@
 ;; yes or no becomes y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Set highlight color
+(set-face-background 'hl-line "#fff")
+
+
 (provide 'set-ui.el)
 ;; set-ui.el ends here

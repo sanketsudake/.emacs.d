@@ -26,8 +26,6 @@
 (add-to-list 'ac-dictionary-directories
              "~/.emacs.d/dict")
 (ac-config-default)
-(require 'auto-complete-clang)
-(require 'auto-complete-clang-async)
 (set-default 'ac-sources
              '(ac-source-abbrev
                ac-source-dictionary
@@ -46,19 +44,11 @@
 
 ;;************************************************************
 
-;;@@auto-complete-clang setup
+;; Eldoc mode
 ;;************************************************************
-;;(require 'auto-complete-clang)
-;;(define-key c++-mode-map (kbd "C-.") 'ac-complete-clang)
-;; replace C-S-<return> with a key binding that you want
-
-
-;;************************************************************
-
-;;@@member-function
-;;************************************************************
-(require 'member-function)
-(setq mf--source-file-extension "cpp")
-;;************************************************************
+(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL")
+(load "c-eldoc")
+(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
 
 (provide 'set-cenv.el)

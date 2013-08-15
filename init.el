@@ -1,11 +1,6 @@
 
 ;; Filename: init.el
 
-
+(add-to-list 'load-path "~/.emacs.d/")
 (require 'cl)
-
-(load "~/.emacs.d/set-packages.el")
-(load "~/.emacs.d/set-ui.el")
-(load "~/.emacs.d/set-org.el")
-(load "~/.emacs.d/set-modes.el")
-(load "~/.emacs.d/set-cenv.el")
+(load "bootstrap.el")
