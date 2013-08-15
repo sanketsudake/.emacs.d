@@ -6,3 +6,5 @@ elpa/*
 var/*
 emms/*
 url/*
+.emacs.desktop
+

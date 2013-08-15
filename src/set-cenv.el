@@ -17,31 +17,41 @@
 (setq autopair-autowrap t)
 ;;************************************************************
 
+;; @@yasnippet mode
+;;************************************************************
+(require 'yasnippet)
+(yas-global-mode 1)
+;;************************************************************
+
 ;; @@autocomplete and yasnippet mode
 ;;************************************************************
 (require 'auto-complete)
-(require 'yasnippet)
-(yas-global-mode 1)
 (require 'auto-complete-config)
+(ac-config-default)
+(ac-flyspell-workaround)
 (add-to-list 'ac-dictionary-directories
              "~/.emacs.d/dict")
-(ac-config-default)
-(set-default 'ac-sources
-             '(ac-source-abbrev
-               ac-source-dictionary
-               ac-source-yasnippet
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-semantic
-			   ac-source-clang
-			   ac-source-clang-async
-			   ))
-(dolist (m '(c-mode c++-mode java-mode))
-  (add-to-list 'ac-modes m))
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
-(global-auto-complete-mode t)
-
+(add-to-list 'load-path "~/.emacs.d/src/clang-async")
+(require 'auto-complete-clang-async)
+(defun ac-cc-mode-setup ()
+  (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
+  (setq ac-sources '(
+					 ac-source-abbrev
+					 ac-source-dictionary
+					 ac-source-yasnippet
+					 ac-source-words-in-buffer
+					 ac-source-words-in-same-mode-buffers
+					 ac-source-semantic
+					 ac-source-clang-async
+					 )
+		)
+  (ac-clang-launch-completion-process))
+(defun my-ac-config ()
+  (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+(my-ac-config)
 ;;************************************************************
 
 ;; Eldoc mode
