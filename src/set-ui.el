@@ -75,7 +75,7 @@
 
 ;; Set highlight color
 (set-face-background 'hl-line "#fff")
-
-
+(set-face-foreground 'hl-line "#00f")
+(set-cursor-color "#f00")
 (provide 'set-ui.el)
 ;; set-ui.el ends here
