@@ -34,18 +34,11 @@
 (add-to-list 'load-path "~/.emacs.d/src/clang-async")
 (require 'auto-complete-clang-async)
 (defun ac-cc-mode-setup ()
-  (setq ac-clang-complete-executable "~/.emacs.d/emacs-clang-complete-async/clang-complete")
-  (setq ac-sources '(
-					 ac-source-abbrev
-					 ac-source-dictionary
-					 ac-source-yasnippet
-					 ac-source-words-in-buffer
-					 ac-source-words-in-same-mode-buffers
-					 ac-source-semantic
-					 ac-source-clang-async
-					 )
-		)
-  (ac-clang-launch-completion-process))
+  (setq ac-clang-complete-executable
+		"~/.emacs.d/src/clang-async/clang-complete")
+  (setq ac-sources '(ac-source-clang-async))
+  (ac-clang-launch-completion-process)
+)
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
@@ -56,7 +49,7 @@
 
 ;; Eldoc mode
 ;;************************************************************
-(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL")
+(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL -I/usr/include")
 (load "c-eldoc")
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)

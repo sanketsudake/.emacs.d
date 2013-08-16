@@ -26,7 +26,8 @@
 				   yaml-mode yari clues-theme
 				   auto-complete autopair
 				   yasnippet ecb emms c-eldoc company
-		   )
+				   golden-ratio
+				   )
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()

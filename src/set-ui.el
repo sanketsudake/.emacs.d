@@ -74,8 +74,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Set highlight color
-(set-face-background 'hl-line "#fff")
-(set-face-foreground 'hl-line "#00f")
-(set-cursor-color "#f00")
+(set-face-background 'hl-line "#663366")
+(set-face-foreground 'hl-line "#fff")
+(set-cursor-color "#ccccff")
 (provide 'set-ui.el)
 ;; set-ui.el ends here
