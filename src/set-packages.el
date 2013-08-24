@@ -26,7 +26,7 @@
 				   yaml-mode yari clues-theme
 				   auto-complete autopair
 				   yasnippet ecb emms c-eldoc company
-				   golden-ratio
+				   golden-ratio powerline
 				   )
   "A list of packages to ensure are installed at launch.")
 
