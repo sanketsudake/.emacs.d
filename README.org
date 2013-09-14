@@ -1,0 +1,14 @@
+
+* .emacs.d
+
+** Description
+My personal emacs config
+
+** Setup
+#+BEGIN_SRC shell
+git clone https://github.com/tripples/.emacs.d.git ~/.emacs.d/
+cd ~/.emacs.d/
+chmod +x async.sh
+./async.sh
+#+END_SRC
+Start emacs, it will install all packages required.

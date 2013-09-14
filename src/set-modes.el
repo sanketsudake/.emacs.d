@@ -126,4 +126,11 @@
 ;; '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
 ;; '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 ;;************************************************************
+
+;;************************************************************
+(require 'popup-switcher)
+(global-set-key [f2] 'psw-switch-buffer)
+;;(global-set-key [f3] 'psw-switch-recentf)
+;;(global-set-key [f4] 'psw-switch-function)
+;;************************************************************
 (provide 'set-modes.el)

@@ -1,6 +1,8 @@
 #!/bin/bash
-sudo apt-get install clang libclang-dev
-sudo pip install -r requirements.txt
+sudo apt-get install clang libclang-dev && \
+sudo pip install -r requirements.txt && \
+cd ~/.emacs.d/src/clang-async/ && \
+make
 # Download googlecl deb package
 # Install using dpkg -i `deb package`
 
