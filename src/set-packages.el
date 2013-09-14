@@ -27,6 +27,7 @@
 				   auto-complete autopair
 				   yasnippet ecb emms c-eldoc company
 				   golden-ratio powerline
+				   jedi
 				   )
   "A list of packages to ensure are installed at launch.")
 

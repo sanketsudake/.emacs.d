@@ -3,3 +3,4 @@
 (load "set-org.el")
 (load "set-modes.el")
 (load "set-cenv.el")
+(load "set-python.el")

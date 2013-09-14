@@ -19,8 +19,8 @@
 
 ;; @@yasnippet mode
 ;;************************************************************
-(require 'yasnippet)
-(yas-global-mode 1)
+;;(require 'yasnippet)
+;;(yas-global-mode 1)
 ;;************************************************************
 
 ;; @@autocomplete and yasnippet mode
@@ -53,9 +53,9 @@
 
 ;; Eldoc mode
 ;;************************************************************
-(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL -I/usr/include")
-(load "c-eldoc")
-(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
+;;(setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL -I/usr/include")
+;;(load "c-eldoc")
+;;(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+;;(add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
 
 (provide 'set-cenv.el)
