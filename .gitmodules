@@ -1,0 +1,3 @@
+[submodule "src/clang"]
+	path = src/clang
+	url = https://github.com/Golevka/emacs-clang-complete-async.git
