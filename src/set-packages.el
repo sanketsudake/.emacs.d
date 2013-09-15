@@ -18,17 +18,14 @@
 
 ;;Package Setup
 (defvar prelude-packages
-  '(ack-and-a-half auctex  deft
-				   expand-region
+  '(ack-and-a-half expand-region
 				   magit magithub markdown-mode
-				   paredit projectile python sass-mode rainbow-mode
-				   scss-mode  volatile-highlights
-				   yaml-mode yari clues-theme
+				   paredit projectile python volatile-highlights
+				   yaml-mode  clues-theme
 				   auto-complete autopair
 				   yasnippet ecb emms c-eldoc company
 				   golden-ratio powerline
-				   popup-switcher
-				   jedi
+				   popup-switcher jedi
 				   )
   "A list of packages to ensure are installed at launch.")
 
