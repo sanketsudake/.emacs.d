@@ -31,11 +31,11 @@
 (ac-flyspell-workaround)
 (add-to-list 'ac-dictionary-directories
              "~/.emacs.d/dict")
-(add-to-list 'load-path "~/.emacs.d/src/clang-async")
+(add-to-list 'load-path "~/.emacs.d/src/clang")
 (require 'auto-complete-clang-async)
 (defun ac-cc-mode-setup ()
   (setq ac-clang-complete-executable
-		"~/.emacs.d/src/clang-async/clang-complete")
+		"~/.emacs.d/src/clang/clang-complete")
   (setq ac-sources '(ac-source-clang-async))
   (ac-clang-launch-completion-process)
 )
