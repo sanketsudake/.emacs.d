@@ -1,19 +1,8 @@
-#!/bin/bash
-sudo apt-get install clang libclang-dev && \
+#!/bin/sh
+sudo apt-get install clang libclang-dev git-core&& \
+cd ~/
+git clone https://github.com/tripples/.emacs.d.git ~/.emacs.d/
+cd ~/.emacs.d/
 sudo pip install -r requirements.txt && \
-cd ~/.emacs.d/src/clang-async/ && \
+cd ~/.emacs.d/src/clang/ && \
 make
-# Download googlecl deb package
-# Install using dpkg -i `deb package`
-
-#Add this to .bashrc
-
-#alias gdl='google docs list'
-#gde() {
-#	google docs edit --title "$@"
-#}
-#export EDITOR=/usr/bin/emacs24
-
-# Usage :
-#  gde "Karlman Filter"
-#
