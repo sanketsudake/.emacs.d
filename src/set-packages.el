@@ -1,4 +1,3 @@
-
 ;; Filename: set-packagesp.el
 ;; Description:
 ;; Created at: 19July, 2013
@@ -25,7 +24,7 @@
 				   auto-complete autopair
 				   yasnippet ecb emms c-eldoc company
 				   golden-ratio powerline
-				   popup-switcher jedi
+				   popup-switcher jedi maxframe
 				   )
   "A list of packages to ensure are installed at launch.")
 

@@ -8,3 +8,4 @@ emms/*
 url/*
 .emacs.desktop
 session*
+rcirc*

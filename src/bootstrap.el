@@ -4,3 +4,4 @@
 (load "set-modes.el")
 (load "set-cenv.el")
 (load "set-python.el")
+(load "set-irc.el")
