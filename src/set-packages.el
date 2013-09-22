@@ -22,7 +22,7 @@
 				   paredit projectile python volatile-highlights
 				   yaml-mode  clues-theme
 				   auto-complete autopair
-				   yasnippet ecb emms c-eldoc company
+				   yasnippet emms c-eldoc company
 				   golden-ratio powerline
 				   popup-switcher jedi maxframe
 				   )
