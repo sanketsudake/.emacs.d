@@ -84,6 +84,8 @@
 ;;************************************************************
 (require 'popup-switcher)
 (global-set-key [f2] 'psw-switch-buffer)
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
 ;;(global-set-key [f3] 'psw-switch-recentf)
 ;;(global-set-key [f4] 'psw-switch-function)
 ;;************************************************************
