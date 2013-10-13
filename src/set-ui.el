@@ -52,7 +52,7 @@
 
 ;;@@Set theme
 ;;************************************************************
-(load-theme 'clues t)
+(load-theme 'molokai t)
 ;;************************************************************
 
 ;;@@Coding style
@@ -80,13 +80,12 @@
 (setq linum-format "%4d")
 ;;************************************************************
 
-
 ;; yes or no becomes y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Set highlight color
-(set-face-background 'hl-line "#663366")
-(set-face-foreground 'hl-line "#fff")
-(set-cursor-color "#ccccff")
+;;(set-face-background 'hl-line "#663366")
+(set-face-foreground 'hl-line "#f8ff")
+;;(set-cursor-color "#ccccff")
 (provide 'set-ui.el)
 ;; set-ui.el ends here

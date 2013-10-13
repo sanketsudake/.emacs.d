@@ -8,12 +8,12 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-(dolist (source '(
-                  ("marmalade" . "http://marmalade-repo.org/packages/")
-				  ("melpa" . "http://melpa.milkbox.net/packages/")
-				  ))
-  (add-to-list 'package-archives source))
-)
+  (dolist (source '(
+					("marmalade" . "http://marmalade-repo.org/packages/")
+					("melpa" . "http://melpa.milkbox.net/packages/")
+					))
+	(add-to-list 'package-archives source))
+  )
 
 ;;Package Setup
 (defvar prelude-packages
@@ -25,6 +25,7 @@
 				   yasnippet emms c-eldoc company
 				   golden-ratio powerline
 				   popup-switcher jedi maxframe
+				   molokai-theme
 				   )
   "A list of packages to ensure are installed at launch.")
 
@@ -44,4 +45,6 @@
       (package-install p))))
 
 
+(require 'doc-mode)
+(add-hook 'c-mode-common-hook 'doc-mode)
 ;;; set-packages.el ends here

@@ -10,10 +10,11 @@
       rcirc-server-alist '(("irc.freenode.net"
                             :channels (
                                        "#emacs"
-                                       "#git"
-                                       "#github"
+                                       ;;"#git"
+                                       ;;"#github"
                                        "#valu"
-									   "#doothings"
+									   "vit_te"
+									   ;;"#doothings"
                                        ))
                            )
       rcirc-authinfo '(("freenode" nickserv "tripples" "tripples3"))
