@@ -5,7 +5,9 @@
 My personal emacs config
 
 ** Setup
-#+BEGIN_SRC shell
+```
 curl -L https://raw.github.com/tripples/.emacs.d/master/install.sh | sh
-#+END_SRC
+```
 Start emacs, it will install all packages required.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tripples/.emacs.d/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
