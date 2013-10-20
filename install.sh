@@ -15,10 +15,16 @@ then
 	fi
 fi
 
+#
+# Install required apps
+#
 echo "Enter password to install packages."
 APPS="clang-3.4 libclang-3.4-dev git-core python-pip"
 sudo apt-get -y install $APPS
 
+#
+# Clone repository
+#
 echo "Loading emacs configuration."
 cd ~/
 git clone https://github.com/tripples/.emacs.d.git ~/.emacs.d/
@@ -26,6 +32,7 @@ echo "Done. Few steps ahead... "
 cd ~/.emacs.d/
 git submodule init
 git submodule update
+
 mkdir -p ~/.emacs.d/emms/
 echo "Installing python requirements."
 sudo pip install -r requirements.txt
