@@ -1,10 +1,9 @@
+Emacs Config
+-----------------------
+<b>Description</b>
+- My personal emacs config
 
-* .emacs.d
-
-** Description
-My personal emacs config
-
-** Setup
+<b>Setup</b>
 ```
 curl -L https://raw.github.com/tripples/.emacs.d/master/install.sh | sh
 ```
