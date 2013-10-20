@@ -25,7 +25,7 @@
 				   yasnippet emms c-eldoc company
 				   golden-ratio powerline
 				   popup-switcher jedi maxframe
-				   molokai-theme
+				   molokai-theme doc-mode
 				   )
   "A list of packages to ensure are installed at launch.")
 
