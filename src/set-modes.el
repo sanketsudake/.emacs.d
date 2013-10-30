@@ -7,6 +7,11 @@
 (setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;;************************************************************
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+(autoload 'enable-paredit-mode "paredit"
+    "Turn on pseudo-structural editing of Lisp code."
+    t)
 
 ;; @@Ido mode
 ;;************************************************************
