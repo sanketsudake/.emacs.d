@@ -19,7 +19,7 @@ fi
 # Install required apps
 #
 echo "Enter password to install packages."
-APPS="clang-3.4 libclang-3.4-dev git-core python-pip"
+APPS="clang libclang-dev git-core python-pip"
 sudo apt-get -y install $APPS
 
 #
@@ -38,5 +38,5 @@ echo "Installing python requirements."
 sudo pip install -r requirements.txt
 echo "Preparing clang autocompletion."
 cd ~/.emacs.d/src/clang/
-make LLVM_CONFIG=llvm-config-3.4
+make
 echo "Start emacs now."

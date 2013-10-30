@@ -14,13 +14,13 @@
 
 ;;;; Load all custom modes
 (setq custom-load-list '("set-packages.el" "set-ui.el" "set-modes.el" "set-org.el"
-					 "set-cenv.el" "set-python.el" "set-irc.el"))
+						 "set-cenv.el" "set-python.el" "set-irc.el"))
+
 (defun load-modes (custom-list)
-"Loads all *.el files mentioned in CUSTOM-LIST"
+  "Loads all *.el files mentioned in CUSTOM-LIST"
   (dolist (item custom-list t)
-	(load item)
-	)
-  )
+	(when (string= (file-name-extension item) "el")
+	  (load item))))
 (load-modes custom-load-list)
 
 ;;;; Start server if not running
