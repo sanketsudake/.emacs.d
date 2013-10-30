@@ -1,5 +1,7 @@
 ;; Filename: set-org.el
+;; Author: Sanket Sudake <sanketsudake at gmail.com>
+;; Licence: GNU GPL v3
 
-;; ToDo: set customized org mode 
+;; ToDo: set customized org mode
 
-(provide 'set-org.el)
+(provide 'set-org)

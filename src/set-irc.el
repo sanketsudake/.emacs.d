@@ -1,25 +1,29 @@
+;; Filename: set-irc.el
+;; Author: Sanket Sudake <sanketsudake at gmail.com>
+;; Licence: GNU GPL v3
+
+;;; Set irc login and connect to required channels
 (require 'rcirc)
 
+;; Set config for irc
 (setq rcirc-default-nick "tripples"
-      rcirc-default-user-name "Sanket"
-      rcirc-default-full-name "Sanket Sudake"
-      rcirc-debug-flag t
-      rcirc-log-directory  "~/.emacs.d/rcirc-log"
-      rcirc-log-flag t
-      rcirc-time-format "%Y-%m-%d %H:%M "
-      rcirc-server-alist '(("irc.freenode.net"
-                            :channels (
-                                       "#emacs"
-                                       ;;"#git"
-                                       ;;"#github"
-                                       "#valu"
-									   "vit_te"
-									   ;;"#doothings"
-                                       ))
-                           )
-      rcirc-authinfo '(("freenode" nickserv "tripples" "tripples3"))
-      )
+	  rcirc-default-user-name "Sanket"
+	  rcirc-default-full-name "Sanket Sudake"
+	  rcirc-debug-flag t
+	  rcirc-log-directory  "~/.emacs.d/rcirc-log"
+	  rcirc-log-flag t
+	  rcirc-time-format "%Y-%m-%d %H:%M "
+	  rcirc-server-alist '(("irc.freenode.net"
+							:channels (
+										 "#emacs"
+										 "#valu"
+										 "#vit_te"))))
 
+(defun config-rcirc (password)
+  "Set authentication for rcirc"
+  (interactive "sPassword: ")
+  rcirc-authinfo '(("freenode" nickserv "tripples" password))
+  )
 
 ;; Don't print /away messages.
 ;; This does not require rcirc to be loaded already,
@@ -35,7 +39,6 @@
           (lambda ()
             (set (make-local-variable 'scroll-conservatively)
                  8192)))
-
 
 ;; Adjust the colours of one of the faces.
 (set-face-foreground 'rcirc-my-nick "red" nil)
@@ -65,8 +68,8 @@
                       rcirc-default-full-name
                       channels))))
 
-
 ;;; track activity when I'm in another buffer
 (eval-after-load 'rcirc '(rcirc-track-minor-mode))
 
 (provide 'set-irc)
+;;set-irc ends here.

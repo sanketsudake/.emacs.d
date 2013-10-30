@@ -14,7 +14,7 @@
 
 ;;;; Load all custom modes
 (setq custom-load-list '("set-packages.el" "set-ui.el" "set-modes.el" "set-org.el"
-						 "set-cenv.el" "set-python.el" "set-irc.el"))
+						 "set-cenv.el" "set-python.el" "set-irc.el" "set-keybindings.el"))
 
 (defun load-modes (custom-list)
   "Loads all *.el files mentioned in CUSTOM-LIST"
