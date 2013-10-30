@@ -1,62 +1,50 @@
-
 ;; Filename: set-ui.el
-;; Purpose: Customizing ui and basic functional changes
+;; Author: Sanket Sudake <sanketsudake at gmail.com>
+;; Licence: GNU GPL v3
 
-;;@@Disable Arrow Keys
-;;************************************************************
-(global-set-key (kbd "<up>") 'disabled-key)
-(global-set-key (kbd "<down>") 'disabled-key)
-(global-set-key (kbd "<left>") 'disabled-key)
-(global-set-key (kbd "<right>") 'disabled-key)
+;;;; Disable Arrow Keys
+;; (global-set-key (kbd "<up>") 'disabled-key)
+;; (global-set-key (kbd "<down>") 'disabled-key)
+;; (global-set-key (kbd "<left>") 'disabled-key)
+;; (global-set-key (kbd "<right>") 'disabled-key)
 (global-set-key (kbd "<C-up>") 'disabled-key)
 (global-set-key (kbd "<C-down>") 'disabled-key)
 (global-set-key (kbd "<C-left>") 'disabled-key)
 (global-set-key (kbd "<C-right>") 'disabled-key)
 (global-set-key (kbd "<home>") 'disabled-key)
 (global-set-key (kbd "<end>") 'disabled-key)
-;;************************************************************
 
-;;@@Set No UI
-;;************************************************************
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-;;************************************************************
+;;;; Set No UI
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+  (when (fboundp mode) (funcall mode -1)))
 
-;;@@Menu Customization
-;;**********************************************************************
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq-default indent-tabs-mode nil)
-(transient-mark-mode 1)
+;;;; Menu Customization
 (setq-default fill-column 80)
 (setq-default indicate-empty-line t)
-(global-font-lock-mode t)
+(setq disable-command-hook nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq-default indent-tabs-mode nil)
+(setq inhibit-startup-message t)
 (mouse-wheel-mode t)
 (show-paren-mode t)
 (display-time-mode)
+(transient-mark-mode 1)
+(global-font-lock-mode t)
 (global-auto-revert-mode 1)
-(setq disable-command-hook nil)
-(setq inhibit-startup-message t)
 (global-hl-line-mode 1)
 (global-linum-mode t)
-(global-visual-line-mode 1) ; 1 for on, 0 for off
-;;**********************************************************************
+(global-visual-line-mode 1)
 
-;;@@Set F11 for Full-Screen
-;;**********************************************************************
+;;;; Set F11 for Full-Screen
 (require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
 (set-frame-parameter (selected-frame) 'alpha '(95 100))
 (add-to-list 'default-frame-alist '(alpha 95 100))
-;;**********************************************************************
 
-;;@@Set theme
-;;************************************************************
+;;;; Set theme
 (load-theme 'molokai t)
-;;************************************************************
 
-;;@@Coding style
-;;************************************************************
+;;;; Coding style
 (prefer-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-language-environment 'UTF-8)
@@ -73,12 +61,6 @@
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
         ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
-;;************************************************************
-
-;;@@Set Linum Format
-;;************************************************************
-(setq linum-format "%4d")
-;;************************************************************
 
 ;; yes or no becomes y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -87,5 +69,6 @@
 ;;(set-face-background 'hl-line "#663366")
 (set-face-foreground 'hl-line "#f8ff")
 ;;(set-cursor-color "#ccccff")
-(provide 'set-ui.el)
-;; set-ui.el ends here
+
+(provide 'set-ui)
+;; set-ui ends here

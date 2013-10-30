@@ -1,30 +1,21 @@
 ;; Filename: set-cenv.el
+;; Author: Sanket Sudake <sanketsudake at gmail.com>
+;; Licence: GNU GPL v3
 
-(require 'cl)
-
-;;@@cc mode setup
-;;************************************************************
+;;;; cc mode setup
 (require 'cc-mode)
 (setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4 indent-tabs-mode t)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-;;************************************************************
 
-;; @@autopair mode
-;;************************************************************
-(require 'autopair)
-(autopair-global-mode 1)
-(setq autopair-autowrap t)
-;;************************************************************
+;;;; doc mode
+(require 'doc-mode)
+(add-hook 'c-mode-common-hook 'doc-mode)
+(add-hook 'c++-mode-hook 'doc-mode)
 
-;; @@yasnippet mode
-;;************************************************************
+;;;; autocomplete and yasnippet mode
 (require 'yasnippet)
 (yas-global-mode 1)
-;;************************************************************
-
-;; @@autocomplete and yasnippet mode
-;;************************************************************
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
@@ -37,8 +28,7 @@
   (setq ac-clang-complete-executable
 		"~/.emacs.d/src/clang/clang-complete")
   (setq ac-sources '(ac-source-clang-async))
-  (ac-clang-launch-completion-process)
-)
+  (ac-clang-launch-completion-process))
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
   (add-hook 'c++-mode-common-hook 'ac-cc-mode-setup)
@@ -49,13 +39,11 @@
 ;; Default settings
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
-;;************************************************************
 
-;; Eldoc mode
-;;************************************************************
+;;;; Eldoc mode
 (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/opencv -I/usr/include/GL -I/usr/include")
 (load "c-eldoc")
 (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode)
 
-(provide 'set-cenv.el)
+(provide 'set-cenv)
