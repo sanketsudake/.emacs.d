@@ -1,7 +1,0 @@
-(load "set-packages.el")
-(load "set-ui.el")
-(load "set-org.el")
-(load "set-modes.el")
-(load "set-cenv.el")
-(load "set-python.el")
-(load "set-irc.el")
