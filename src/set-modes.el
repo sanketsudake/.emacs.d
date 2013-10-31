@@ -68,6 +68,7 @@
 (golden-ratio-mode 1)
 
 ;; Save emacs session before exit
+(setq desktop-save 'if-exists)
 (desktop-save-mode 1)
 
 ;; Powerline Mode
@@ -95,18 +96,18 @@
 (defun it-multi-term-dedicated-toggle ()
   "jump back to previous location after toggling ded term off"
   (interactive)
-  (if (multi-term-dedicated-exist-p)
-      (progn
-	(multi-term-dedicated-toggle)
-	(switch-to-buffer-other-window old-buf))
-    (progn
-      (setq old-buf (current-buffer))
-      (multi-term-dedicated-toggle))
-    )
-  )
+  (multi-term-dedicated-toggle))
+  ;; (if (multi-term-dedicated-exist-p)
+  ;; 	  (if (eq (current-buffer) (multi-term-dedicated-get-buffer-name))
+  ;; 		  (msg "Same buffer")
+  ;; 		(progn
+  ;; 		  (multi-term-dedicated-toggle)
+  ;; 		  (switch-to-buffer-other-window (multi-term-dedicated-get-buffer-name))))
+  ;;   (progn
+  ;; 	  (multi-term-dedicated-toggle))))
 
 (when (require 'multi-term nil t)
-  (global-set-key (kbd "<f5>") 'get-term)
+;;  (global-set-key (kbd "<f5>") 'get-term)
   (global-set-key (kbd "<f6>") 'it-multi-term-dedicated-toggle)
   (global-set-key (kbd "<C-next>") 'multi-term-next)
   (global-set-key (kbd "<C-prior>") 'multi-term-prev)
