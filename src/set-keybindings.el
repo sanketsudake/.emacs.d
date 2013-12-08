@@ -82,4 +82,8 @@ one, an error is signaled."
 (global-set-key (kbd "C-c <left>")   'buf-move-left)
 (global-set-key (kbd "C-c <right>")  'buf-move-right)
 
+;; M-:
+;; Write elisp code
+;; code will be evaluated in emacs
+
 (provide 'set-keybindings)

@@ -24,10 +24,23 @@
              "~/.emacs.d/dict")
 (add-to-list 'load-path "~/.emacs.d/src/clang")
 (require 'auto-complete-clang-async)
+(setq ac-ignore-case 'smart)
+(set-face-background 'ac-candidate-face "lightgray")
+(set-face-underline 'ac-candidate-face "darkgray")
+(set-face-background 'ac-selection-face "steelblue")
 (defun ac-cc-mode-setup ()
   (setq ac-clang-complete-executable
 		"~/.emacs.d/src/clang/clang-complete")
-  (setq ac-sources '(ac-source-clang-async))
+  (setq ac-sources '(ac-source-clang-async
+					 ac-source-words-in-buffer
+					 ac-source-words-in-same-mode-buffers
+					 ac-source-filename
+					 ac-source-files-in-current-dir
+					 ac-source-yasnippet
+					 ac-source-dictionary
+					 ac-source-semantic
+					 ac-source-gtags
+					 ))
   (ac-clang-launch-completion-process))
 (defun my-ac-config ()
   (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
