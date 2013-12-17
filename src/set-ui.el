@@ -42,7 +42,8 @@
 (add-to-list 'default-frame-alist '(alpha 95 100))
 
 ;;;; Set theme
-(load-theme 'molokai t)
+;;(load-theme 'molokai t)
+(load-theme 'tsdh-light t)
 
 ;;;; Coding style
 (prefer-coding-system 'utf-8)
