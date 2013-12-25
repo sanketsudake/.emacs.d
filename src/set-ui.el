@@ -71,5 +71,7 @@
 (set-face-foreground 'hl-line "#f8ff")
 ;;(set-cursor-color "#ccccff")
 
+;; Set font attribute
+(set-face-attribute 'default nil :height 105)
 (provide 'set-ui)
 ;; set-ui ends here

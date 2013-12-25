@@ -17,7 +17,8 @@
 							:channels (
 										 "#emacs"
 										 "#valu"
-										 "#vit_te"))))
+										 "#vit_te"
+										 "#selenium"))))
 
 (defun config-rcirc (password)
   "Set authentication for rcirc"
