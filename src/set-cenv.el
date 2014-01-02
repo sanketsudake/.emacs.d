@@ -40,6 +40,7 @@
 					 ac-source-dictionary
 					 ac-source-semantic
 					 ac-source-gtags
+					 ac-source-jedi-direct
 					 ))
   (ac-clang-launch-completion-process))
 (defun my-ac-config ()

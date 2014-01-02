@@ -132,4 +132,23 @@
               (cons "M-y" 'term-send-raw-meta)
               (cons "C-y" 'term-send-raw))))
 
+
+(defun web-mode-hook()
+  "Hooks for web mode."
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-indent-style 4)
+  (set-face-attribute 'web-mode-html-tag-face nil :foreground "Orange")
+  (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "Purple")
+  (set-face-attribute 'web-mode-doctype-face nil :foreground "Blue")
+  (setq web-mode-engines-alist '(("python" . "\\.html\\'")))
+  (setq web-mode-style-padding 1)
+  (setq web-mode-script-padding 1)
+  (setq web-mode-block-padding 0)
+  )
+(require 'web-mode)
+(add-hook 'web-mode-hook 'web-mode-hook)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 (provide 'set-modes)

@@ -8,7 +8,8 @@
   (package-initialize)
   (dolist (source '(
 					("marmalade" . "http://marmalade-repo.org/packages/")
-					("melpa" . "http://melpa.milkbox.net/packages/")))
+					("melpa" . "http://melpa.milkbox.net/packages/")
+					))
 	(add-to-list 'package-archives source)))
 
 ;;;;Package Setup
@@ -22,6 +23,7 @@
 				   golden-ratio powerline
 				   popup-switcher jedi maxframe
 				   molokai-theme doc-mode
+				   flycheck flycheck-tip
 				   multi-term))
 
 (defun ss-packages-installed-p ()
