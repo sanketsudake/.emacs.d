@@ -41,6 +41,7 @@
 					 ac-source-semantic
 					 ac-source-gtags
 					 ac-source-jedi-direct
+					 ac-source-css-property
 					 ))
   (ac-clang-launch-completion-process))
 (defun my-ac-config ()

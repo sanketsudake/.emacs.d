@@ -24,7 +24,7 @@
 				   popup-switcher jedi maxframe
 				   molokai-theme doc-mode
 				   flycheck flycheck-tip
-				   multi-term))
+				   multi-term web-mode))
 
 (defun ss-packages-installed-p ()
   "Check whether packages installed or not"
