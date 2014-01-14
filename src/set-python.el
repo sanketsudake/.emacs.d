@@ -8,12 +8,16 @@
 
 ;;(require 'flycheck-mode)
 (eval-after-load "python"
-  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
+  '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer)
 
+  )
+(flyspell-prog-mode)
 (require 'flycheck-tip)
 (require 'flycheck-color-mode-line)
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+
+
 
 (provide 'set-python)
 ;; set-python ends here.

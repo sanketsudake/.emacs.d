@@ -22,7 +22,10 @@
 	(when (string= (file-name-extension item) "el")
 	  (load item))))
 (load-modes custom-load-list)
+(setq-default indent-tabs-mode nil)
 
+(require 'helm-config)
+(helm-mode 1)
 ;;;; Start server if not running
 (server-start)
 (unless (server-running-p) (server-start))
