@@ -24,8 +24,24 @@
 (load-modes custom-load-list)
 (setq-default indent-tabs-mode nil)
 
-(require 'helm-config)
-(helm-mode 1)
+;; (require 'helm-config)
+;; (require 'helm-files)
+;; (helm-mode 1)
+
+;; (helm :sources '(helm-source-findutils
+;;                  helm-source-recentf
+;;                  helm-source-bookmarks
+;;                  helm-source-buffers-list
+;;                  helm-source-google-suggest
+;;                  helm-source-locate
+;;                 )
+;;       :buffer "*helm all the things*")
+
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;;;; Start server if not running
 (server-start)
 (unless (server-running-p) (server-start))

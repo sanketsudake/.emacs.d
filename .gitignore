@@ -10,3 +10,4 @@ url/*
 .emacs.desktop.lock
 session*
 rcirc*
+.cask/*

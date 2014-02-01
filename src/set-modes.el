@@ -13,10 +13,10 @@
 ;;;; Ido mode
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-;; This tab override shouldn't be necessary given ido's default
-;; configuration, but minibuffer-complete otherwise dominates the
-;; tab binding because of my custom tab-completion-everywhere
-;; configuration.
+;;This tab override shouldn't be necessary given ido's default
+;;configuration, but minibuffer-complete otherwise dominates the
+;;tab binding because of my custom tab-completion-everywhere
+;;configuration.
 (add-hook 'ido-setup-hook
           (lambda ()
             (define-key ido-completion-map [tab] 'ido-complete)))
@@ -142,10 +142,7 @@
   (set-face-attribute 'web-mode-html-tag-face nil :foreground "Orange")
   (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "Purple")
   (set-face-attribute 'web-mode-doctype-face nil :foreground "Blue")
-  (setq web-mode-engines-alist '(("python" . "\\.html\\'")))
-  (setq web-mode-style-padding 1)
-  (setq web-mode-script-padding 1)
-  (setq web-mode-block-padding 0)
+  (setq web-mode-engines-alist '(("django" . "\\.html\\'")))
   )
 (require 'web-mode)
 (add-hook 'web-mode-hook 'web-mode-hook)
