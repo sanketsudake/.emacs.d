@@ -37,7 +37,8 @@
 ;;                 )
 ;;       :buffer "*helm all the things*")
 
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+;;(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
 
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)

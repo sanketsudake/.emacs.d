@@ -3,10 +3,10 @@
 ;; Licence: GNU GPL v3
 
 ;;;; Disable Arrow Keys
-;; (global-set-key (kbd "<up>") 'disabled-key)
-;; (global-set-key (kbd "<down>") 'disabled-key)
-;; (global-set-key (kbd "<left>") 'disabled-key)
-;; (global-set-key (kbd "<right>") 'disabled-key)
+(global-set-key (kbd "<up>") 'disabled-key)
+(global-set-key (kbd "<down>") 'disabled-key)
+(global-set-key (kbd "<left>") 'disabled-key)
+(global-set-key (kbd "<right>") 'disabled-key)
 ;;(global-set-key (kbd "<C-up>") 'disabled-key)
 ;;(global-set-key (kbd "<C-down>") 'disabled-key)
 ;;(global-set-key (kbd "<C-left>") 'disabled-key)
@@ -43,7 +43,8 @@
 
 ;;;; Set theme
 ;;(load-theme 'molokai t)
-(load-theme 'tsdh-light t)
+;;(load-theme 'tsdh-light t)
+(load-theme 'clues t)
 
 ;;;; Coding style
 (prefer-coding-system 'utf-8)
@@ -67,8 +68,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Set highlight color
-;;(set-face-background 'hl-line "#663366")
-(set-face-foreground 'hl-line "#f8ff")
+(set-face-background 'hl-line "#000")
+;;(set-face-foreground 'hl-line "#f8ff")
 ;;(set-cursor-color "#ccccff")
 
 ;; Set font attribute
