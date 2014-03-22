@@ -11,3 +11,6 @@ url/*
 session*
 rcirc*
 .cask/*
+.mc-lists.el
+tramp
+
