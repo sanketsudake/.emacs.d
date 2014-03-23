@@ -7,24 +7,18 @@
   (require 'package)
   (package-initialize)
   (dolist (source '(
-					("marmalade" . "http://marmalade-repo.org/packages/")
-					("melpa" . "http://melpa.milkbox.net/packages/")
-					))
-	(add-to-list 'package-archives source)))
+                    ("marmalade" . "http://marmalade-repo.org/packages/")
+                    ("melpa" . "http://melpa.milkbox.net/packages/")
+                    ))
+    (add-to-list 'package-archives source)))
 
 ;;;;Package Setup
 (defvar ss-packages-list
   "A list of packages to ensure are installed at launch."
-  '(ack-and-a-half expand-region
-				   magit markdown-mode
-				   paredit projectile python volatile-highlights
-				   yaml-mode auto-complete autopair
-				   yasnippet emms c-eldoc
-				   golden-ratio powerline
-				   popup-switcher jedi maxframe
-				   molokai-theme doc-mode
-				   flycheck flycheck-tip
-				   multi-term web-mode helm))
+  '(ack-and-a-half expand-region magit markdown-mode paredit projectile python
+    volatile-highlights yaml-mode auto-complete autopair yasnippet emms c-eldoc
+    golden-ratio powerline popup-switcher jedi maxframe molokai-theme doc-mode
+    flycheck flycheck-tip multi-term web-mode helm maxframe))
 
 (defun ss-packages-installed-p ()
   "Check whether packages installed or not"

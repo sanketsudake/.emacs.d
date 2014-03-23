@@ -42,9 +42,7 @@
 (add-to-list 'default-frame-alist '(alpha 95 100))
 
 ;;;; Set theme
-;;(load-theme 'molokai t)
-;;(load-theme 'tsdh-light t)
-(load-theme 'clues t)
+(load-theme 'wombat t)
 
 ;;;; Coding style
 (prefer-coding-system 'utf-8)
@@ -68,11 +66,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Set highlight color
-(set-face-background 'hl-line "#000")
+;;(set-face-background 'hl-line "#000")
 ;;(set-face-foreground 'hl-line "#f8ff")
 ;;(set-cursor-color "#ccccff")
 
 ;; Set font attribute
-(set-face-attribute 'default nil :height 105)
+;;(set-face-attribute 'default nil :height 105)
 (provide 'set-ui)
 ;; set-ui ends here

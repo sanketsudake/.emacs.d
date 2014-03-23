@@ -5,6 +5,9 @@
 ;; Licence: GNU GPL v3
 
 ;; Common-lisp support
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 (require 'cl)
 
 ;;;; add-directories to LOAD-PATH
@@ -13,7 +16,7 @@
 (add-to-list 'load-path "~/.emacs.d/src")
 
 ;;;; Load all custom modes
-(setq custom-load-list '("set-packages.el" "set-ui.el" "set-modes.el" "set-org.el"
+(setq custom-load-list '("set-ui.el" "set-modes.el" "set-org.el"
 						 "set-cenv.el" "set-python.el" "set-irc.el" "set-keybindings.el"))
 
 (defun load-modes (custom-list)
@@ -40,8 +43,6 @@
 ;;(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
 
 ;;;; Start server if not running
 (server-start)
