@@ -66,9 +66,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Set highlight color
-;;(set-face-background 'hl-line "#000")
+(set-face-background 'hl-line "#242440")
 ;;(set-face-foreground 'hl-line "#f8ff")
 ;;(set-cursor-color "#ccccff")
+(set-face-attribute hl-line-face nil :underline nil)
+
 
 ;; Set font attribute
 ;;(set-face-attribute 'default nil :height 105)

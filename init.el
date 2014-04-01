@@ -25,7 +25,6 @@
 	(when (string= (file-name-extension item) "el")
 	  (load item))))
 (load-modes custom-load-list)
-(setq-default indent-tabs-mode nil)
 
 ;; (require 'helm-config)
 ;; (require 'helm-files)

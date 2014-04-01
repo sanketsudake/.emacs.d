@@ -112,7 +112,7 @@
   (global-set-key (kbd "<C-next>") 'multi-term-next)
   (global-set-key (kbd "<C-prior>") 'multi-term-prev)
   (setq multi-term-buffer-name "term"
-        multi-term-program "/bin/bash"))
+        multi-term-program "/bin/zsh"))
 
 (when (require 'term nil t) ; only if term can be loaded..
   (setq term-bind-key-alist
