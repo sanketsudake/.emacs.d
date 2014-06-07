@@ -19,7 +19,7 @@ fi
 # Install required apps
 #
 echo "Enter password to install packages."
-APPS="clang libclang-dev git-core python-pip"
+APPS="clang git-core"
 sudo apt-get -y install $APPS
 
 #
@@ -30,13 +30,7 @@ cd ~/
 git clone https://github.com/tripples/.emacs.d.git ~/.emacs.d/
 echo "Done. Few steps ahead... "
 cd ~/.emacs.d/
-git submodule init
-git submodule update
 
-mkdir -p ~/.emacs.d/emms/
-echo "Installing python requirements."
-sudo pip install -r requirements.txt
-echo "Preparing clang autocompletion."
-cd ~/.emacs.d/src/clang/
-make
+cask init
+cask update
 echo "Start emacs now."
