@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -d "/home/$USER/.emacs.d/" ]
+if [ -d "$HOME/.emacs.d/" ]
 then
 	echo "~/.emacs.d/ Already exist"
 	echo -n "Do you want to remove existing ? (y/n) => "
@@ -8,7 +8,7 @@ then
 	if [ $rep = 'y' ]
 	then
 		echo "Removing previous emacs configuration."
-		rm -rf ~/.emacs.d/
+		rm -rf $HOME/.emacs.d/
 	else
 		echo "Exiting installation."
 		exit 1
@@ -26,10 +26,10 @@ sudo apt-get -y install $APPS
 # Clone repository
 #
 echo "Loading emacs configuration."
-cd ~/
-git clone https://github.com/tripples/.emacs.d.git ~/.emacs.d/
+cd $HOME
+git clone https://github.com/tripples/.emacs.d.git $HOME/.emacs.d/
 echo "Done. Few steps ahead... "
-cd ~/.emacs.d/
+cd $HOME/.emacs.d/
 
 cask init
 cask update
