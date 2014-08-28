@@ -21,3 +21,4 @@
 (require 'golden-ratio)
 (golden-ratio-mode 1)
 (load-theme 'wombat t)
+(display-time-mode)

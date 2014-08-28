@@ -17,6 +17,7 @@
 		   golden-ratio powerline
 		   popup-switcher autopair
 		   xcscope multiple-cursors
+		   ggtags
 		   )
   "A list of packages to ensure are installed at launch.")
 

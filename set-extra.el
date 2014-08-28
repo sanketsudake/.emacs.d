@@ -7,7 +7,6 @@
 (defvar ido-everywhere t)
 (defvar ido-vertical-mode t)
 (defvar ido-completion-map)
-
 ;; This tab override shouldn't be necessary given ido's default
 ;; configuration, but minibuffer-complete otherwise dominates the
 ;; tab binding because of my custom tab-completion-everywhere
@@ -16,14 +15,12 @@
           (lambda ()
             (define-key ido-completion-map [tab] 'ido-complete)))
 (ido-mode 1)
+
 ;; stop creating those backup~ files
 (setq make-backup-files nil)
 ;; stop creating those #autosave# files
 (setq auto-save-default nil)
-;; autopair mode
-(require 'autopair)
-(autopair-global-mode 1)
-(setq autopair-autowrap t)
+
 ;; Save emacs session before exit
 (defvar desktop-save 'if-exists)
 (desktop-save-mode 1)
