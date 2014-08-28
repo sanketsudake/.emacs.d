@@ -31,6 +31,6 @@ git clone https://github.com/tripples/.emacs.d.git $HOME/.emacs.d/
 echo "Done. Few steps ahead... "
 cd $HOME/.emacs.d/
 
-cask init
-cask update
+#cask init
+#cask update
 echo "Start emacs now."
